@@ -1750,10 +1750,12 @@
             #services-grid {
                 display: flex !important;
                 overflow-x: auto;
+                overflow-y: visible;
                 scroll-snap-type: x mandatory;
                 -webkit-overflow-scrolling: touch;
                 gap: 16px !important;
                 padding-bottom: 12px;
+                padding-top: 8px;
                 scrollbar-width: none;
                 margin: 0 -1rem;
                 padding-left: 1rem;
@@ -1768,69 +1770,95 @@
                 flex: 0 0 80vw;
                 min-width: 80vw;
                 scroll-snap-align: center;
+                overflow: visible !important;
             }
 
-            .carousel-dots {
-                display: flex !important;
-                justify-content: center;
-                align-items: center;
-                gap: 4px;
-                margin-top: 24px;
-                background: rgba(255, 255, 255, 0.03);
-                border: 1px solid rgba(255, 255, 255, 0.06);
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
-                border-radius: 20px;
-                padding: 8px 14px;
-                width: fit-content;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .carousel-dot {
+            .premium-indicator-container {
                 position: relative;
-                width: 20px;
-                height: 3px;
-                border-radius: 2px;
-                background: rgba(255, 255, 255, 0.08);
-                border: none;
-                padding: 0;
-                cursor: pointer;
-                transition: width 0.6s var(--ease-spring), background 0.4s ease;
-                -webkit-tap-highlight-color: transparent;
-                overflow: hidden;
+                display: flex !important;
+                margin: 24px auto 0;
+                background: rgba(255, 255, 255, 0.02);
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+                border-radius: 100px;
+                padding: 4px;
+                width: max-content;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
             }
 
-            .carousel-dot .dot-fill {
+            .premium-thumb {
                 position: absolute;
-                inset: 0;
-                border-radius: 2px;
-                background: transparent;
-                transform-origin: left;
-                transform: scaleX(0);
+                top: 4px;
+                left: 4px;
+                height: calc(100% - 8px);
+                width: 48px;
+                background: linear-gradient(135deg, rgba(115, 240, 209, 0.15) 0%, rgba(115, 240, 209, 0.05) 100%);
+                border: 1px solid rgba(115, 240, 209, 0.3);
+                border-radius: 100px;
+                box-shadow: 0 0 15px rgba(115, 240, 209, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+                transition: transform 0.6s cubic-bezier(0.25, 1, 0.3, 1);
+                pointer-events: none;
+                z-index: 1;
             }
 
-            .carousel-dot.active {
-                width: 36px;
-                background: rgba(115, 240, 209, 0.1);
+            .premium-segment {
+                position: relative;
+                width: 48px;
+                height: 32px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: var(--font-body);
+                font-size: 0.75rem;
+                font-weight: 600;
+                color: rgba(255, 255, 255, 0.3);
+                cursor: pointer;
+                transition: color 0.4s ease;
+                z-index: 2;
+                -webkit-tap-highlight-color: transparent;
             }
 
-            .carousel-dot.active .dot-fill {
-                background: linear-gradient(90deg, #73F0D1, #5BD4B8);
-                box-shadow: 0 0 10px rgba(115, 240, 209, 0.3);
-                transform: scaleX(1);
-                animation: dotProgress 4s linear;
+            .premium-segment.active {
+                color: #73F0D1;
+                text-shadow: 0 0 12px rgba(115, 240, 209, 0.6);
             }
 
-            @keyframes dotProgress {
-                from {
-                    transform: scaleX(0);
-                }
-
-                to {
-                    transform: scaleX(1);
-                }
+            /* Exact Mobile Hover Replica */
+            .glass-card.mobile-active {
+                transform: translateY(-6px) scale(1.015);
+                border-color: rgba(33, 240, 209, 0.35);
+                box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5), 0 0 30px rgba(33, 240, 209, 0.15);
+                background: linear-gradient(165deg, rgba(14, 26, 22, 0.9), rgba(8, 12, 16, 0.95));
             }
+
+            .glass-card.mobile-active::before {
+                opacity: 0.9;
+            }
+
+            .glass-card.mobile-active::after {
+                opacity: 1;
+                width: 150px;
+                height: 150px;
+                background: radial-gradient(circle at top right, rgba(33, 240, 209, 0.15), transparent 70%);
+            }
+
+            .glass-card.mobile-active .card-icon {
+                border-color: rgba(33, 240, 209, 0.5);
+                box-shadow: 0 0 24px rgba(33, 240, 209, 0.25), inset 0 0 12px rgba(33, 240, 209, 0.1);
+                background: linear-gradient(135deg, rgba(33, 240, 209, 0.2), rgba(33, 240, 209, 0.05));
+                transform: scale(1.1) rotate(3deg);
+            }
+
+            .glass-card.mobile-active .card-icon svg {
+                transform: scale(1.1) rotate(-3deg);
+            }
+
+            .glass-card.mobile-active h3 {
+                color: #73F0D1 !important;
+            }
+
+
         }
 
         @media (min-width: 769px) {
@@ -2324,11 +2352,14 @@
             }
         }
 
-        
+
         @keyframes logoFloat {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0px);
             }
+
             50% {
                 transform: translateY(-4px);
             }
@@ -2338,6 +2369,7 @@
             0% {
                 background-position: -200% center;
             }
+
             100% {
                 background-position: 200% center;
             }
@@ -2347,11 +2379,14 @@
             animation: logoFloat 3s ease-in-out infinite;
         }
 
-        
+
         @keyframes gradientShift {
-            0%, 100% {
+
+            0%,
+            100% {
                 background-position: 0% 50%;
             }
+
             50% {
                 background-position: 100% 50%;
             }
@@ -2592,12 +2627,12 @@
                 </div>
             </div>
 
-            <div class="carousel-dots" style="display:none;">
-                <button class="carousel-dot active" data-index="0" aria-label="Card 1"><span
-                        class="dot-fill"></span></button>
-                <button class="carousel-dot" data-index="1" aria-label="Card 2"><span class="dot-fill"></span></button>
-                <button class="carousel-dot" data-index="2" aria-label="Card 3"><span class="dot-fill"></span></button>
-                <button class="carousel-dot" data-index="3" aria-label="Card 4"><span class="dot-fill"></span></button>
+            <div class="premium-indicator-container" style="display:none;" id="services-indicator">
+                <div class="premium-thumb" id="services-thumb"></div>
+                <div class="premium-segment active" data-index="0" aria-label="Card 1">01</div>
+                <div class="premium-segment" data-index="1" aria-label="Card 2">02</div>
+                <div class="premium-segment" data-index="2" aria-label="Card 3">03</div>
+                <div class="premium-segment" data-index="3" aria-label="Card 4">04</div>
             </div>
         </div>
     </section>
@@ -2695,8 +2730,7 @@
                     <div class="case-img-wrap h-56 w-full relative overflow-hidden bg-transparent"
                         style="border-radius: var(--radius-card) var(--radius-card) 0 0;">
                         <img src="./img/ai_personal_assistant_case.png" alt="AI Personal Assistant"
-                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 scale-[1.05] group-hover:scale-110"
-                            loading="lazy">
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 scale-[1.05] group-hover:scale-110">
                         <span class="case-number">01</span>
                     </div>
                     <div class="p-8 flex flex-col flex-grow relative">
@@ -2722,8 +2756,7 @@
                     <div class="case-img-wrap h-56 w-full relative overflow-hidden bg-transparent"
                         style="border-radius: var(--radius-card) var(--radius-card) 0 0;">
                         <img src="./img/ai_market_research_case.png" alt="AI Market Researcher"
-                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 scale-[1.05] group-hover:scale-110"
-                            loading="lazy">
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 scale-[1.05] group-hover:scale-110">
                         <span class="case-number">02</span>
                     </div>
                     <div class="p-8 flex flex-col flex-grow relative">
@@ -2748,8 +2781,7 @@
                     <div class="case-img-wrap h-56 w-full relative overflow-hidden bg-transparent"
                         style="border-radius: var(--radius-card) var(--radius-card) 0 0;">
                         <img src="./img/ai_commercial_analyst_case.png" alt="AI Commercial Analyst"
-                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 scale-[1.05] group-hover:scale-110"
-                            loading="lazy">
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 scale-[1.05] group-hover:scale-110">
                         <span class="case-number">03</span>
                     </div>
                     <div class="p-8 flex flex-col flex-grow relative">
@@ -2774,8 +2806,7 @@
                     <div class="case-img-wrap h-56 w-full relative overflow-hidden bg-transparent"
                         style="border-radius: var(--radius-card) var(--radius-card) 0 0;">
                         <img src="./img/ai_content_agent_case.png" alt="AI Content Agent"
-                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 scale-[1.05] group-hover:scale-110"
-                            loading="lazy">
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 scale-[1.05] group-hover:scale-110">
                         <span class="case-number">04</span>
                     </div>
                     <div class="p-8 flex flex-col flex-grow relative">
@@ -2801,8 +2832,7 @@
                     <div class="case-img-wrap h-56 w-full relative overflow-hidden bg-transparent"
                         style="border-radius: var(--radius-card) var(--radius-card) 0 0;">
                         <img src="./img/ai_feedback_agent_case.png" alt="AI Feedback Agent"
-                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 scale-[1.05] group-hover:scale-110"
-                            loading="lazy">
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 scale-[1.05] group-hover:scale-110">
                         <span class="case-number">05</span>
                     </div>
                     <div class="p-8 flex flex-col flex-grow relative">
@@ -2883,57 +2913,66 @@
         <div
             class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-white/5">
             <div class="p-12 md:p-24 reveal-from-left relative overflow-hidden group">
-                
+
                 <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                     <div class="absolute top-0 right-0 w-64 h-64 bg-core/5 rounded-full blur-3xl animate-pulse"></div>
-                    <div class="absolute bottom-0 left-0 w-48 h-48 bg-accent1/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 0.5s;"></div>
+                    <div class="absolute bottom-0 left-0 w-48 h-48 bg-accent1/5 rounded-full blur-3xl animate-pulse"
+                        style="animation-delay: 0.5s;"></div>
                 </div>
-                
+
                 <div class="relative z-10">
                     <p class="font-body text-core text-xs uppercase tracking-widest mb-6 flex items-center gap-2">
                         <span class="w-8 h-px bg-gradient-to-r from-core to-transparent"></span>
                         Partner
                     </p>
-                    
+
                     <h2 class="font-display text-3xl md:text-4xl font-bold mb-8 leading-tight">
                         Strategic AI <br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-core via-structLight to-core partner-gradient-text">
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-core via-structLight to-core partner-gradient-text">
                             Transformation Partner
                         </span>
                     </h2>
-                    
+
                     <p class="font-body text-white/70 text-base mb-10 leading-relaxed">
-                        Backed by <span class="text-white font-semibold">AmA Invest</span>. 
+                        Backed by <span class="text-white font-semibold">AmA Invest</span>.
                         <br class="hidden md:block">
                         Operational design with long-term perspective.
                     </p>
-                    
-                    
+
+
                     <div class="relative inline-block group/logo">
-                        
-                        <div class="absolute inset-0 bg-gradient-to-r from-core/20 via-structLight/20 to-accent1/20 rounded-2xl blur-xl opacity-0 group-hover/logo:opacity-100 transition-opacity duration-500 scale-110"></div>
-                        
-                        
-                        <div class="relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-2xl p-6 border border-white/10 group-hover/logo:border-core/40 transition-all duration-500 shadow-lg group-hover/logo:shadow-core/20 group-hover/logo:shadow-2xl">
-                            
-                            <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-core/5 via-transparent to-accent1/5 opacity-0 group-hover/logo:opacity-100 transition-opacity duration-500"></div>
-                            
-                            
-                            <img 
-                                src="./partner.png" 
-                                alt="AmA Invest Partner Logo" 
-                                class="relative h-12 md:h-14 w-auto object-contain filter brightness-90 group-hover/logo:brightness-110 transition-all duration-500 group-hover/logo:scale-105"
-                            >
-                            
-                            
+
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-core/20 via-structLight/20 to-accent1/20 rounded-2xl blur-xl opacity-0 group-hover/logo:opacity-100 transition-opacity duration-500 scale-110">
+                        </div>
+
+
+                        <div
+                            class="relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-2xl p-6 border border-white/10 group-hover/logo:border-core/40 transition-all duration-500 shadow-lg group-hover/logo:shadow-core/20 group-hover/logo:shadow-2xl">
+
+                            <div
+                                class="absolute inset-0 rounded-2xl bg-gradient-to-br from-core/5 via-transparent to-accent1/5 opacity-0 group-hover/logo:opacity-100 transition-opacity duration-500">
+                            </div>
+
+
+                            <img src="./partner.png" alt="AmA Invest Partner Logo"
+                                class="relative h-12 md:h-14 w-auto object-contain filter brightness-90 group-hover/logo:brightness-110 transition-all duration-500 group-hover/logo:scale-105">
+
+
                             <div class="absolute inset-0 rounded-2xl overflow-hidden">
-                                <div class="absolute inset-0 translate-x-[-100%] group-hover/logo:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"></div>
+                                <div
+                                    class="absolute inset-0 translate-x-[-100%] group-hover/logo:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12">
+                                </div>
                             </div>
                         </div>
-                        
-                        
-                        <div class="absolute -top-1 -right-1 w-2 h-2 bg-core rounded-full opacity-0 group-hover/logo:opacity-100 group-hover/logo:animate-ping"></div>
-                        <div class="absolute -bottom-1 -left-1 w-2 h-2 bg-accent1 rounded-full opacity-0 group-hover/logo:opacity-100 group-hover/logo:animate-ping" style="animation-delay: 0.3s;"></div>
+
+
+                        <div
+                            class="absolute -top-1 -right-1 w-2 h-2 bg-core rounded-full opacity-0 group-hover/logo:opacity-100 group-hover/logo:animate-ping">
+                        </div>
+                        <div class="absolute -bottom-1 -left-1 w-2 h-2 bg-accent1 rounded-full opacity-0 group-hover/logo:opacity-100 group-hover/logo:animate-ping"
+                            style="animation-delay: 0.3s;"></div>
                     </div>
                 </div>
             </div>
@@ -3505,7 +3544,9 @@
             if (!grid) return;
 
             const cards = Array.from(grid.querySelectorAll('.glass-card'));
-            const dots = Array.from(document.querySelectorAll('.carousel-dot'));
+            const dots = Array.from(document.querySelectorAll('.premium-segment'));
+            const thumb = document.getElementById('services-thumb');
+            const indicatorContainer = document.getElementById('services-indicator');
             if (cards.length === 0) return;
 
             let currentIndex = 0;
@@ -3536,15 +3577,41 @@
                         dot.classList.remove('active');
                     }
                 });
+
+                // Sync the card animation on mobile exactly as requested
+                cards.forEach(function (card, i) {
+                    if (i === idx) {
+                        card.classList.add('mobile-active');
+                    } else {
+                        card.classList.remove('mobile-active');
+                    }
+                });
+
+                if (thumb) {
+                    // Each segment is 48px wide. Shift thumb by idx * 48px
+                    thumb.style.transform = 'translateX(' + (idx * 48) + 'px)';
+                }
             }
+
+            let isProgrammaticScroll = false;
+            let programmaticScrollTimeout = null;
 
             function goTo(idx) {
                 var card = cards[idx];
                 if (!card) return;
+
+                isProgrammaticScroll = true;
+                if (programmaticScrollTimeout) clearTimeout(programmaticScrollTimeout);
+
                 var target = card.offsetLeft - (grid.offsetWidth - card.offsetWidth) / 2;
                 grid.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
                 currentIndex = idx;
                 syncDots(idx);
+
+                // Allow CSS smooth scroll to finish (~500ms-600ms) before re-enabling manual scroll tracking
+                programmaticScrollTimeout = setTimeout(() => {
+                    isProgrammaticScroll = false;
+                }, 800);
             }
 
             function nextSlide() {
@@ -3564,6 +3631,8 @@
             }
 
             grid.addEventListener('scroll', function () {
+                if (isProgrammaticScroll) return; // Prevent glitching on auto-scroll
+
                 if (scrollRaf) cancelAnimationFrame(scrollRaf);
                 scrollRaf = requestAnimationFrame(function () {
                     var idx = getClosestIndex();
@@ -3599,13 +3668,24 @@
             var mq = window.matchMedia('(max-width: 768px)');
             function handleMQ(e) {
                 if (e.matches) {
+                    syncDots(0); // Initialize first card as active
                     startAuto();
+                    if (indicatorContainer) indicatorContainer.style.display = 'flex';
                 } else {
                     stopAuto();
+                    if (indicatorContainer) indicatorContainer.style.display = 'none';
+                    // Remove mobile-active class on desktop
+                    cards.forEach(function (card) {
+                        card.classList.remove('mobile-active');
+                    });
                 }
             }
             mq.addEventListener('change', handleMQ);
-            if (mq.matches) startAuto();
+            if (mq.matches) {
+                syncDots(0); // Initialize first card as active on load
+                startAuto();
+                if (indicatorContainer) indicatorContainer.style.display = 'flex';
+            }
         })();
 
         (function () {

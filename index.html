@@ -7896,7 +7896,6 @@
                     </div>
                 </div>
                 <p class="font-body text-xs text-white/40 text-center max-w-[250px]">Check your email for the Google Meet link and calendar invite.</p>
-                <button onclick="closeConsultModal()" class="mt-6 text-white/50 hover:text-white font-body text-sm transition-colors border-b border-white/20 pb-0.5">Close window</button>
             </div>
 
             <button onclick="closeConsultModal()" class="absolute top-6 right-6 text-white/30 hover:text-core hover:rotate-90 transition-all duration-300 z-20" aria-label="Close modal">
@@ -8036,10 +8035,10 @@
         /* ─── CONSULTATION MODAL LOGIC ─── */
         
         // IMPORTANT: Replace this with the deployed Google Apps Script Web App URL
-        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzwTWK7T8-6uYHPqba_E7r1ZzE1FcMvmsGkRgi0pZq-jHlcvXiK_aT64gi2OfqrYrbdFA/exec';
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwczxWH3yLbR_-2TT9Q8IrJqwfv0_ey4-gkNdOQt2mtlvjgm4rwRnh3BYpKWY6b4Exspg/exec';
         
         // Apply Form Script URL (for Join the Team form)
-        const APPLY_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw2F1rytkqkGpceFmFON2dy9ghX-4ckxB4PzADNgi_feuCWo9inxpEQn-WypvQlwo5l/exec';
+        const APPLY_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby9PESgAB9jfLH8FtF6Ux2YbCgWj4XlHDDw3_iSMTT3ni-QZpe_phuhETv66H91hM-V/exec';
         
         const consultModal = document.getElementById('consultModal');
         const consultModalContent = document.getElementById('consultModalContent');
@@ -8340,7 +8339,7 @@
             const options = { weekday: 'short', month: 'short', day: 'numeric' };
             
             document.getElementById('successDate').innerText = d.toLocaleDateString('en-US', options);
-            document.getElementById('successTime').innerText = consultState.time + " (" + Intl.DateTimeFormat().resolvedOptions().timeZone + ")";
+            document.getElementById('successTime').innerText = consultState.time + " (Asia/Bangkok)";
             
             successEl.classList.add('active');
         }

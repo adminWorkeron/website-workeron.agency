@@ -1,11 +1,11 @@
-# Workeron.ai - Robots.txt
+# Workeron.agency - Robots.txt
 # AI Transformation & Digital Employees
 
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://workeron.ai/sitemap.xml
+Sitemap: https://workeron.agency/sitemap.xml
 
 # Allow all major search engines
 User-agent: Googlebot
@@ -34,4 +34,4 @@ Allow: /
 Crawl-delay: 1
 
 # Host (preferred domain)
-Host: https://workeron.ai
+Host: https://workeron.agency

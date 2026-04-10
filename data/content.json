@@ -1,0 +1,236 @@
+{
+  "hero": {
+    "badge": " Digital Employees Lab",
+    "title": "Emprowe your Business with Custom AI Solutions",
+    "subtitle": "AI infrastructure speeding-up your enterprise workflows",
+    "description": "Less manual chaos. More structured execution. We start as an AI Transformation Agency, building custom AI agents for business operations. We evolve into a Digital Employees Lab.",
+    "button": "Get Started Now"
+  },
+  "services": {
+    "eyebrow": "What We Build",
+    "title": "Operational AI, Embedded Into Your Systems",
+    "items": [
+      {
+        "title": "AI Customer Support Agent",
+        "description": "Automated support across channels. Structured escalation and quality control."
+      },
+      {
+        "title": "AI Sales Assistants",
+        "description": "Lead qualification and CRM updates. Faster response. Clear pipeline visibility."
+      },
+      {
+        "title": "AI Analytics Agents",
+        "description": "Automated reporting and anomaly detection. Real-time operational signals."
+      },
+      {
+        "title": "AI Content Agent",
+        "description": "Scalable product and SEO content generation. From manual work to structured pipelines."
+      }
+    ]
+  },
+  "process": {
+    "eyebrow": "Our Process",
+    "title": "Structured Implementation. Measurable Impact.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Discovery",
+        "description": "Process mapping. Bottlenecks. Clear metrics."
+      },
+      {
+        "number": "02",
+        "title": "PoC",
+        "description": "Focused use case. 2–4 weeks to validate impact."
+      },
+      {
+        "number": "03",
+        "title": "Pilot",
+        "description": "System integration with quality control."
+      },
+      {
+        "number": "04",
+        "title": "Scale",
+        "description": "Expansion across workflows with continuous optimization."
+      }
+    ]
+  },
+  "cases": {
+    "eyebrow": "Portfolio",
+    "title": "Cases",
+    "items": [
+      {
+        "number": "01",
+        "badge": "Internal Dev",
+        "title": "AI Personal Assistant",
+        "image": "./img/ai_personal_assistant_case.png",
+        "description": "AI-powered operational assistant designed to support daily executive and team workflows.",
+        "features": [
+          "Task management",
+          "Meeting summaries",
+          "Cross-system coordination"
+        ]
+      },
+      {
+        "number": "02",
+        "badge": "In Pilot Phase",
+        "title": "AI Market Researcher",
+        "image": "./img/ai_market_research_case.png",
+        "description": "Autonomous research agent that collects, structures, and analyzes market data.",
+        "features": [
+          "Competitor tracking",
+          "Trend detection",
+          "Opportunity mapping"
+        ]
+      },
+      {
+        "number": "03",
+        "badge": "Internal Prototype",
+        "title": "AI Commercial Analyst",
+        "image": "./img/ai_commercial_analyst_case.png",
+        "description": "AI system that monitors revenue drivers and operational efficiency.",
+        "features": [
+          "Margin tracking",
+          "Performance signals",
+          "Automated reporting logic"
+        ]
+      },
+      {
+        "number": "04",
+        "badge": "Active Internal Use",
+        "title": "AI Content Agent",
+        "image": "./img/ai_content_agent_case.png",
+        "description": "Automated content production system embedded into marketing workflows.",
+        "features": [
+          "Product descriptions",
+          "SEO content pipelines",
+          "Internal documentation support"
+        ]
+      },
+      {
+        "number": "05",
+        "badge": "Development Phase",
+        "title": "AI Feedback Agent",
+        "image": "./img/ai_feedback_agent_case.png",
+        "description": "AI-powered internal feedback intelligence system.",
+        "features": [
+          "Sentiment analysis",
+          "Anonymous reporting",
+          "Organizational signal detection"
+        ]
+      }
+    ]
+  },
+  "about": {
+    "title": "Worker + AI becomes Workeron.AI.",
+    "description": "Like an operon is a basic functional unit in a cell, Workeron is the basic functional unit of a modern business. We build the core operational elements that let companies scale, automate and perform with precision.",
+    "values": [
+      {
+        "title": "Business-First",
+        "description": "Metrics and economics before technology."
+      },
+      {
+        "title": "Embedded Architecture",
+        "description": "AI inside your real infrastructure."
+      },
+      {
+        "title": "Fast Deployment",
+        "description": "Weeks, not quarters."
+      },
+      {
+        "title": "Responsible Automation",
+        "description": "Human oversight where it matters."
+      },
+      {
+        "title": "Scalable Systems",
+        "description": "Designed to grow without complexity."
+      }
+    ]
+  },
+  "blog": {
+    "badge": "Workeron Blog",
+    "title": "From the Workeron Lab",
+    "subtitle": "Practical guides on AI deployment and automation strategy.",
+    "button": "View All Articles"
+  },
+  "team": {
+    "badge": "Meet the Founders",
+    "title": "Built by Humans & Machines",
+    "subtitle": "We design, build, and deploy AI systems that transform business operations.",
+    "members": [
+      {
+        "name": "Eva",
+        "role": "Admin Manager",
+        "image": "/uploads/c4f28fab-b202-4d72-bec2-fb50e573612a.jpg",
+        "email": "evelinevy@workeron.ai",
+        "linkedin": "https://www.linkedin.com/in/evelina-ziuzina-b05bb6178/"
+      },
+      {
+        "name": "Max",
+        "role": "CEO",
+        "image": "/uploads/942f928a-59ed-46a1-b9cd-ca79b8a7b454.jpg",
+        "email": "max.gera@workeron.ai",
+        "linkedin": "https://www.linkedin.com/in/max-gera/"
+      },
+      {
+        "name": "Rick",
+        "role": "Project Manager",
+        "image": "./team/Rick.jpg",
+        "email": "rick@workeron.ai",
+        "linkedin": "https://www.linkedin.com/in/rickgarth/"
+      }
+    ]
+  },
+  "partnership": {
+    "badge": "Strategic Alliance",
+    "partner": "AmA Invest Capital",
+    "title": "Backed by Strategic Capital Expertise.",
+    "description": "As a portfolio company of AmA Invest Capital, Workeron scales industrial-grade AI solutions with deep operational support. Our partnership enables us to transform complex legacy systems into autonomous agentic architectures at global scale.",
+    "quote": "Bridging the gap between raw AI potential and enterprise-grade execution through strategic investment and process redesign.",
+    "image": "./img/partner.png"
+  },
+  "careers": {
+    "badge": "Innovation Lab",
+    "title": "Build the Future of Autonomous Work.",
+    "description": "We are engineering a new category of digital employees. Join our multidisciplinary team of builders, researchers, and visionaries to design systems that don't just process data, but execute missions.",
+    "roles": [
+      "AI Engineers",
+      "Automation Engineers",
+      "Fullstack Developers",
+      "Product Specialists"
+    ],
+    "button": "Apply now"
+  },
+  "howWeWork": {
+    "badge": "How we work",
+    "title": "From manual operations to agentic execution",
+    "subtitle": "We redesign fragmented workflows into intelligent, fast, human-supervised automation.",
+    "stats": [
+      {
+        "value": "10×",
+        "label": "fewer handoffs"
+      },
+      {
+        "value": "96%",
+        "label": "faster resolution"
+      },
+      {
+        "value": "100%",
+        "label": "human-supervised"
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Let’s Talk",
+    "title": "Design Your Digital Workforce",
+    "description": "Tell us about your process and goals. We will outline impact, timeline, and deployment path.",
+    "buttonPrimary": "Request Consultation",
+    "buttonSecondary": "Join the Team"
+  },
+  "footer": {
+    "tagline": "Digital Employees Lab",
+    "description": "AI systems embedded directly into your operations. We design, build, and deploy digital employees.",
+    "email": "admin@workeron.ai",
+    "copyright": "© 2026 Workeron.ai — All rights reserved.",
+    "motto": "Humans and Machines are Working Together."
+  }
+}

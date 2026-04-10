@@ -1,0 +1,29 @@
+{
+  "contactEmail": "admin@workeron.agency",
+  "consultationFormUrl": "https://script.google.com/macros/s/AKfycbzHmnmho93fEV0XAmN0ZM0zMyA596O9aQiBf5W8T4ssKxuubtQCtO3chGpxY2sl5xMETw/exec",
+  "applyFormUrl": "https://script.google.com/macros/s/AKfycbxQDP0yGFR2KqyIEzAQhqPgKnB4g61edkTr_wcqgJKBX83Tbkc4YlZ0I_lX4jEvvhXG/exec",
+  "applyFormFields": {
+    "namePlaceholder": "Full Name",
+    "emailPlaceholder": "Email Address",
+    "phonePlaceholder": "Phone (optional)",
+    "rolePlaceholder": "Select Role",
+    "aboutPlaceholder": "Tell us about yourself",
+    "linkedinPlaceholder": "LinkedIn / Portfolio (optional)",
+    "submitButton": "Submit Application"
+  },
+  "consultationFormFields": {
+    "namePlaceholder": "Full Name",
+    "emailPlaceholder": "Work Email",
+    "descriptionPlaceholder": "Brief description (optional)",
+    "nextButton": "Next: Select Date",
+    "confirmButton": "Confirm Booking"
+  },
+  "applyRoles": [
+    "AI Engineer",
+    "Automation Engineer",
+    "Fullstack Developer",
+    "Product Specialist",
+    "ML Engineer",
+    "DevOps Engineer"
+  ]
+}

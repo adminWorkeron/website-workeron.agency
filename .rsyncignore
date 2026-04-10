@@ -1,0 +1,12 @@
+node_modules/
+.git/
+.env
+.DS_Store
+*.log
+data/cms.db
+uploads/*
+!uploads/.gitkeep
+liti/
+Trial Pryvid/
+tests/
+.gitignore

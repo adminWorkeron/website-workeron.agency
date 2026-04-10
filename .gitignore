@@ -1,0 +1,27 @@
+.env
+venv/
+__pycache__/
+.DS_Store
+*.pdf
+*.docx
+*.pptx
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# CMS Data (comment out if you want to commit)
+data/cms.db
+data/cms.db-shm
+data/cms.db-wal
+uploads/*
+!uploads/.gitkeep
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

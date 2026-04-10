@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workeron CMS</title>
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+</head>
+<body class="dashboard">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>Workeron CMS</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a class="nav-item active" data-target="dashboard">Dashboard</a>
+            <a class="nav-item" data-target="content">Site Content</a>
+            <a class="nav-item" data-target="settings">Forms & Settings</a>
+            <a class="nav-item" data-target="blog">Blog Articles</a>
+        </nav>
+        <div class="sidebar-footer">
+            <button id="logout-btn" class="btn-secondary" style="width: 100%; border-color: rgba(255,255,255,0.2); color: white;">Log Out</button>
+        </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <button class="menu-toggle" id="menu-toggle" aria-label="Open menu">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+                <h3>Content Management</h3>
+            </div>
+            <span id="user-info">admin</span>
+        </header>
+
+        <div class="content-area">
+            
+            <!-- Dashboard Overview -->
+            <div id="dashboard" class="section active">
+                <h1>Welcome to Workeron CMS</h1>
+                <p>Select a section from the sidebar to manage your site content.</p>
+                
+                <div class="grid grid-2" style="margin-top: 32px;">
+                    <div class="card">
+                        <h3>Site Texts & Images</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 16px;">Manage the hero section, services, cases, about us, team, etc.</p>
+                        <button class="btn-primary" onclick="switchSection('content')">Manage Content</button>
+                    </div>
+                    <div class="card">
+                        <h3>Blog Management</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 16px;">Create, edit or delete blog articles.</p>
+                        <button class="btn-primary" onclick="switchSection('blog')">Manage Articles</button>
+                    </div>
+                    <div class="card">
+                        <h3>Forms Settings</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 16px;">Update form placeholders, webhook URLs, and emails.</p>
+                        <button class="btn-primary" onclick="switchSection('settings')">Manage Settings</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Editor -->
+            <div id="content" class="section">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h1>Site Content</h1>
+                    <button class="btn-primary" id="save-content-btn">Save Changes</button>
+                </div>
+                <div id="content-status"></div>
+                
+                <div class="card">
+                    <label>Select Section</label>
+                    <select id="content-section-select" style="margin-bottom: 24px;">
+                        <option value="">Choose a section...</option>
+                        <option value="hero">Hero</option>
+                        <option value="services">Services</option>
+                        <option value="process">Process</option>
+                        <option value="cases">Cases</option>
+                        <option value="about">About</option>
+                        <option value="blog">Blog Preview</option>
+                        <option value="team">Team</option>
+                        <option value="partnership">Partnership</option>
+                        <option value="careers">Careers</option>
+                        <option value="howWeWork">How We Work</option>
+                        <option value="contact">Contact</option>
+                        <option value="footer">Footer</option>
+                    </select>
+
+                    <div id="content-editor-container"></div>
+                </div>
+            </div>
+
+            <!-- Settings Editor -->
+            <div id="settings" class="section">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h1>Forms & Settings</h1>
+                    <button class="btn-primary" id="save-settings-btn">Save Settings</button>
+                </div>
+                <div id="settings-status"></div>
+                
+                <div class="card" id="settings-editor-container">
+                    <!-- Dynamic fields -->
+                </div>
+            </div>
+
+            <!-- Blog List -->
+            <div id="blog" class="section">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h1>Blog Articles</h1>
+                    <button class="btn-primary" onclick="openArticleEditor()">+ Create New Article</button>
+                </div>
+                
+                <div class="card" style="margin-top: 24px;">
+                    <table class="data-table" id="articles-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Date</th>
+                                <th>Category</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Filled dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Article Editor -->
+            <div id="article-editor" class="section">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h1 id="article-editor-title">Edit Article</h1>
+                    <div>
+                        <button class="btn-secondary" onclick="switchSection('blog')">Cancel</button>
+                        <button class="btn-primary" id="save-article-btn">Save Article</button>
+                    </div>
+                </div>
+                <div id="article-status"></div>
+                
+                <div class="card" style="margin-top: 24px;">
+                    <input type="hidden" id="art-id">
+                    
+                    <div class="grid grid-2">
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input type="text" id="art-title" required onkeyup="generateSlug()">
+                        </div>
+                        <div class="form-group">
+                            <label>Slug (URL snippet)</label>
+                            <input type="text" id="art-slug" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Date</label>
+                            <input type="date" id="art-date">
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <input type="text" id="art-category">
+                        </div>
+                        <div class="form-group">
+                            <label>Author</label>
+                            <input type="text" id="art-author">
+                        </div>
+                        <div class="form-group upload-group">
+                            <label>Cover Image</label>
+                            <div style="display: flex; gap: 8px;">
+                                <input type="text" id="art-image" placeholder="Image URL">
+                                <input type="file" id="art-image-upload" style="display: none" accept="image/*">
+                                <button class="btn-secondary" onclick="document.getElementById('art-image-upload').click()">Upload Image</button>
+                            </div>
+                            <img id="art-image-preview" class="image-preview" style="display: none;">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Excerpt (Short description)</label>
+                        <textarea id="art-excerpt" style="min-height: 80px;"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Content</label>
+                        <div id="quill-editor" style="height: 400px;"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

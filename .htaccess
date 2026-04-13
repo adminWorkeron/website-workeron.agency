@@ -11,3 +11,11 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} (.+)/$
 RewriteRule ^ %1 [R=301,L]
+
+# Prevent indexing of query string variations for non-blog pages
+<IfModule mod_headers.c>
+    # Add canonical header for index page
+    <If "%{REQUEST_URI} == '/' || %{REQUEST_URI} == '/index.html'">
+        Header set Link '<https://workeron.agency/>; rel="canonical"'
+    </If>
+</IfModule>

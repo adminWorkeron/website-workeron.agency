@@ -3,6 +3,42 @@
         revealObserver: null
     };
 
+    // Update canonical URL based on current page and query parameters
+    function updateCanonicalTag() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const articleSlug = urlParams.get('article');
+        
+        let canonicalUrl = 'https://workeron.agency/blog.html';
+        
+        // If viewing a specific article, add it to canonical
+        if (articleSlug) {
+            canonicalUrl = `https://workeron.agency/blog.html?article=${articleSlug}`;
+        }
+        
+        // Update or create canonical tag
+        let canonicalTag = document.querySelector('link[rel="canonical"]');
+        if (canonicalTag) {
+            canonicalTag.setAttribute('href', canonicalUrl);
+        } else {
+            canonicalTag = document.createElement('link');
+            canonicalTag.setAttribute('rel', 'canonical');
+            canonicalTag.setAttribute('href', canonicalUrl);
+            document.head.appendChild(canonicalTag);
+        }
+        
+        // Update OG URL
+        let ogUrl = document.querySelector('meta[property="og:url"]');
+        if (ogUrl) {
+            ogUrl.setAttribute('content', canonicalUrl);
+        }
+        
+        // Update Twitter URL
+        let twitterUrl = document.querySelector('meta[property="twitter:url"]');
+        if (twitterUrl) {
+            twitterUrl.setAttribute('content', canonicalUrl);
+        }
+    }
+
     function initMobileMenu() {
         const mobileMenuBtn = document.getElementById("mobile-menu-btn");
         const mobileMenu = document.getElementById("mobile-menu");
@@ -284,6 +320,7 @@
     }
 
     function init() {
+        updateCanonicalTag();
         initMobileMenu();
         initHeaderScroll();
         initRevealObserver();

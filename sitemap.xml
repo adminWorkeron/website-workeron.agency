@@ -7,7 +7,7 @@
     <!-- Homepage -->
     <url>
         <loc>https://workeron.agency/</loc>
-        <lastmod>2026-03-27</lastmod>
+        <lastmod>2026-04-13</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -15,9 +15,57 @@
     <!-- Blog Main Page -->
     <url>
         <loc>https://workeron.agency/blog.html</loc>
-        <lastmod>2026-03-27</lastmod>
+        <lastmod>2026-04-13</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
+    </url>
+
+    <!-- Blog Article: 5-business-processes-ai-automation-2026 -->
+    <url>
+        <loc>https://workeron.agency/blog.html?article=5-business-processes-ai-automation-2026</loc>
+        <lastmod>2026-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Blog Article: ai-agents-sales-automation-pipeline-2026 -->
+    <url>
+        <loc>https://workeron.agency/blog.html?article=ai-agents-sales-automation-pipeline-2026</loc>
+        <lastmod>2026-03-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Blog Article: what-is-ai-agent-how-it-works-2026 -->
+    <url>
+        <loc>https://workeron.agency/blog.html?article=what-is-ai-agent-how-it-works-2026</loc>
+        <lastmod>2026-03-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Blog Article: ai-agents-vs-chatbots-2026 -->
+    <url>
+        <loc>https://workeron.agency/blog.html?article=ai-agents-vs-chatbots-2026</loc>
+        <lastmod>2026-03-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Blog Article: deploy-ai-customer-support-automation-2026 -->
+    <url>
+        <loc>https://workeron.agency/blog.html?article=deploy-ai-customer-support-automation-2026</loc>
+        <lastmod>2026-03-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Blog Article: calculate-roi-ai-agents-framework -->
+    <url>
+        <loc>https://workeron.agency/blog.html?article=calculate-roi-ai-agents-framework</loc>
+        <lastmod>2026-03-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
     </url>
 
 </urlset>

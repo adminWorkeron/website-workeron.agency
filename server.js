@@ -170,6 +170,16 @@ function regenerateCMSClient() {
   }
 }
 
+function regenerateSitemap() {
+  try {
+    console.log('Regenerating sitemap.xml...');
+    execSync('node generate-sitemap.js', { cwd: __dirname });
+    console.log('sitemap.xml regenerated successfully');
+  } catch (error) {
+    console.error('Failed to regenerate sitemap.xml:', error.message);
+  }
+}
+
 app.get('/api/content', (req, res) => {
   res.json(readJSON(contentPath));
 });
@@ -224,6 +234,7 @@ app.post('/api/articles', requireAuth, (req, res) => {
     category || '', image || '', excerpt || '', content || '',
     meta_title || '', meta_description || '', JSON.stringify(keywords || []));
 
+  regenerateSitemap();
   res.json({ ok: true, id: result.lastInsertRowid });
 });
 
@@ -240,11 +251,13 @@ app.put('/api/articles/:id', requireAuth, (req, res) => {
   `).run(title, slug, date, author, category, image, excerpt, content,
     meta_title || '', meta_description || '', JSON.stringify(keywords || []), req.params.id);
 
+  regenerateSitemap();
   res.json({ ok: true });
 });
 
 app.delete('/api/articles/:id', requireAuth, (req, res) => {
   db.prepare('DELETE FROM articles WHERE id = ?').run(req.params.id);
+  regenerateSitemap();
   res.json({ ok: true });
 });
 

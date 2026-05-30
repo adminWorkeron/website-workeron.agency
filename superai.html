@@ -152,9 +152,8 @@
 
         /* ── Hero ── */
         .hero-glow { position: absolute; left: 28%; top: 42%; width: 460px; height: 460px; transform: translate(-50%,-50%); border-radius: 50%;
-            box-shadow: 0 0 60px 20px rgba(33,240,209,0.10), 0 0 120px 40px rgba(33,240,209,0.05), inset 0 0 60px 20px rgba(33,240,209,0.06);
-            animation: glowPulse 5s ease-in-out infinite; pointer-events: none; z-index: 0; }
-        @keyframes glowPulse { 0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.7} 50%{transform:translate(-50%,-50%) scale(1.12);opacity:1} }
+            box-shadow: 0 0 60px 20px rgba(33,240,209,0.06), 0 0 120px 40px rgba(33,240,209,0.03), inset 0 0 60px 20px rgba(33,240,209,0.04);
+            pointer-events: none; z-index: 0; } /* static — no pulsing */
         .hero-callout { border-left: 2px solid var(--accent-mint); padding: 4px 0 4px 18px; margin-top: 28px; max-width: 30rem; }
         .scroll-hint { display: flex; align-items: center; gap: 12px; margin-top: 36px; font-family: 'Space Grotesk', monospace;
             font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.4); }

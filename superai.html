@@ -144,6 +144,7 @@
             border: 1px solid rgba(33,240,209,0.3); background: rgba(33,240,209,0.06); padding: 6px 14px; border-radius: 999px; }
         .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-mint); box-shadow: 0 0 10px rgba(33,240,209,0.9); animation: pulse 2s infinite; }
         @keyframes pulse { 0%,100%{opacity:.5} 50%{opacity:1} }
+        a.eyebrow:hover { border-color: rgba(33,240,209,0.6); background: rgba(33,240,209,0.12); }
         .step-label { font-family: 'Space Grotesk', monospace; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.22em;
             text-transform: uppercase; color: var(--accent-mint); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
         .step-label::before { content: ''; width: 24px; height: 1px; background: var(--accent-mint); display: inline-block; opacity: .7; }
@@ -222,7 +223,7 @@
     <nav class="nav">
         <div class="nav-inner">
             <a href="#" class="nav-logo"><span class="mark"></span>Workeron.ai</a>
-            <span class="eyebrow"><span class="dot"></span>Super AI 2026 · Live</span>
+            <a class="eyebrow" href="https://www.superai.com/" target="_blank" rel="noopener"><span class="dot"></span>Super AI 2026 · Live</a>
         </div>
     </nav>
 
@@ -230,8 +231,8 @@
     <section class="relative z-10 container px-6 pt-16 pb-24 md:pt-20 md:pb-28">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-0 items-center">
             <div class="relative z-10 lg:border-r lg:border-white/10 lg:pr-12">
-                <span class="eyebrow reveal"><span class="dot"></span>Super AI 2026 · Early Access</span>
-                <h1 class="font-display font-bold leading-[1.02] mt-7 reveal" style="font-size:clamp(3.2rem,7.5vw,5.6rem);">
+                <a class="eyebrow reveal" href="https://www.superai.com/" target="_blank" rel="noopener"><span class="dot"></span>Super AI 2026 · Early Access</a>
+                <h1 class="font-display font-bold leading-[1.02] mt-7 reveal" style="font-size:clamp(2rem,8vw,5.6rem);">
                     AI is everywhere.<br>
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-core to-structLight" style="filter:drop-shadow(0 0 22px rgba(33,240,209,0.3));">Make it work.</span>
                 </h1>

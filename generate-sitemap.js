@@ -34,6 +34,14 @@ let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
         <priority>0.9</priority>
     </url>
 
+    <!-- Super AI 2026 Landing -->
+    <url>
+        <loc>https://workeron.agency/superai</loc>
+        <lastmod>${today}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
 `;
 
 // Add each article

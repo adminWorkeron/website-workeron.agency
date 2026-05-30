@@ -192,16 +192,25 @@
         .card-icon { width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border-radius: 12px; border: 1px solid rgba(33,240,209,0.2); background: rgba(33,240,209,0.06); }
         .divider-glow { height: 1px; background: linear-gradient(90deg, transparent, rgba(33,240,209,0.25) 30%, rgba(33,240,209,0.25) 70%, transparent); }
 
+        /* ── Flat panels (mockup divider-grid: 1px gaps over border bg = hairlines) ── */
+        .panel-grid { display: grid; gap: 1px; background: var(--border-subtle); border: 1px solid var(--border-subtle); }
+        .panel { background: #0b110f; position: relative; transition: background .3s ease; }
+        .panel:hover { background: #0f1714; }
+        .panel-top { position: absolute; top: 0; left: 0; right: 0; height: 2px; background: transparent; transition: background .3s ease; }
+        .panel:hover .panel-top { background: var(--accent-mint); }
+        .card-arrow { position: absolute; bottom: 28px; right: 28px; font-size: 1.2rem; color: rgba(255,255,255,0.18); transition: color .3s ease, transform .3s ease; }
+        .panel:hover .card-arrow { color: var(--accent-mint); transform: translate(3px,-3px); }
+
         /* ── About + Trust ── */
         .trust-item { display: grid; grid-template-columns: 22px 1fr; gap: 14px; align-items: start; }
         .trust-item .arrow { color: var(--accent-mint); font-weight: 700; text-shadow: 0 0 12px rgba(33,240,209,0.5); }
         .trust-lead { display: block; font-family: var(--font-display); font-weight: 700; color: #fff; margin-bottom: 4px; font-size: 1.05rem; }
 
         /* ── Team ── */
-        .team-avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(33,240,209,0.3); flex-shrink: 0; }
-        .team-link { display: inline-flex; align-items: center; gap: 7px; color: rgba(255,255,255,0.55); font-family: 'Space Grotesk', monospace;
-            font-size: 0.8rem; transition: color .25s ease; }
-        .team-link:hover { color: var(--accent-mint); }
+        .team-avatar { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(33,240,209,0.3); flex-shrink: 0; }
+        .team-link { display: inline-flex; align-items: center; gap: 7px; color: var(--accent-mint); font-family: 'Space Grotesk', monospace;
+            font-size: 0.8rem; transition: opacity .25s ease; }
+        .team-link:hover { opacity: 0.65; }
         .team-link svg { width: 15px; height: 15px; flex-shrink: 0; }
 
         /* ── Reveal ── */
@@ -230,7 +239,7 @@
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div class="relative z-10">
                 <span class="eyebrow reveal"><span class="dot"></span>Super AI 2026 · Early Access</span>
-                <h1 class="font-display font-bold leading-[1.04] mt-7 reveal" style="font-size:clamp(2.9rem,6.5vw,5rem);">
+                <h1 class="font-display font-bold leading-[1.02] mt-7 reveal" style="font-size:clamp(3.2rem,7.5vw,5.6rem);">
                     AI is everywhere.<br>
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-core to-structLight" style="filter:drop-shadow(0 0 22px rgba(33,240,209,0.3));">Make it work.</span>
                 </h1>
@@ -243,7 +252,7 @@
             </div>
 
             <div class="relative z-10 reveal">
-                <div class="glass-card p-7 md:p-9 relative">
+                <div class="relative">
                     <div class="step-label">Step 01</div>
                     <h2 class="font-display text-2xl md:text-3xl font-bold text-white mb-2">Get your promo code</h2>
                     <p class="text-white/55 text-sm mb-7 leading-relaxed">Drop your details. We'll send your activation code instantly, it unlocks a free period on any Workeron AI product.</p>
@@ -270,7 +279,8 @@
 
     <!-- ════════ WE'RE 5 METERS AWAY ════════ -->
     <section class="relative z-10 container px-6 py-14 md:py-16">
-        <div class="glass-card p-8 md:p-12 reveal">
+        <div class="divider-glow mb-12 reveal"></div>
+        <div class="reveal border-l-2 border-core/60 pl-6 md:pl-8 max-w-3xl">
             <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-6">We're literally 5 meters away</h2>
             <div class="space-y-4 text-white/65 text-lg leading-relaxed">
                 <p>You're still at Super AI. So are we.</p>
@@ -288,24 +298,27 @@
                 <div class="step-label">Step 02</div>
                 <h2 class="font-display text-3xl md:text-5xl font-bold">What we build</h2>
             </div>
-            <p class="text-white/55 text-lg leading-relaxed">AI-native systems that replace operational functions and show up in your P&amp;L. Pick what fits.</p>
+            <p class="font-display text-xl md:text-2xl font-semibold text-white/85 leading-snug">AI-native systems that replace operational functions and show up in your P&amp;L. Pick what fits.</p>
         </div>
         <div class="divider-glow mb-12 reveal"></div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="glass-card hoverable p-8 reveal">
+        <div class="panel-grid grid-cols-1 md:grid-cols-3 reveal">
+            <div class="panel p-10"><span class="panel-top"></span>
                 <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#21F0D1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
                 <h3 class="font-display text-xl font-bold text-white mb-3">AI Executive Assistant</h3>
-                <p class="text-white/55 leading-relaxed">A permanent digital EA for C-level leaders. Handles scheduling, briefings, follow-ups, and decision routing without ever quitting.</p>
+                <p class="text-white/55 leading-relaxed pr-8">A permanent digital EA for C-level leaders. Handles scheduling, briefings, follow-ups, and decision routing without ever quitting.</p>
+                <span class="card-arrow" aria-hidden="true">→</span>
             </div>
-            <div class="glass-card hoverable p-8 reveal">
+            <div class="panel p-10"><span class="panel-top"></span>
                 <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#21F0D1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
                 <h3 class="font-display text-xl font-bold text-white mb-3">AI Ops Infrastructure</h3>
-                <p class="text-white/55 leading-relaxed">We replace entire operational functions with AI-native systems. Measurable output: revenue per employee, EBITDA margin, error rate.</p>
+                <p class="text-white/55 leading-relaxed pr-8">We replace entire operational functions with AI-native systems. Measurable output: revenue per employee, EBITDA margin, error rate.</p>
+                <span class="card-arrow" aria-hidden="true">→</span>
             </div>
-            <div class="glass-card hoverable p-8 reveal">
+            <div class="panel p-10"><span class="panel-top"></span>
                 <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#21F0D1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></div>
                 <h3 class="font-display text-xl font-bold text-white mb-3">AI Operating System</h3>
-                <p class="text-white/55 leading-relaxed">Full-company AI infrastructure. Every function visible to agents. Built for companies ready to stop piloting and start rebuilding.</p>
+                <p class="text-white/55 leading-relaxed pr-8">Full-company AI infrastructure. Every function visible to agents. Built for companies ready to stop piloting and start rebuilding.</p>
+                <span class="card-arrow" aria-hidden="true">→</span>
             </div>
         </div>
     </section>
@@ -335,25 +348,25 @@
         <p class="section-eyebrow reveal">The team</p>
         <h2 class="font-display text-3xl md:text-5xl font-bold mb-3 reveal">Max &amp; Vlad are here at Super AI.</h2>
         <p class="text-white/55 text-lg mb-10 reveal">Find us, scan the code, or book time directly.</p>
-        <div class="grid md:grid-cols-2 gap-6">
-            <div class="glass-card p-7 reveal flex items-center gap-5">
+        <div class="panel-grid grid-cols-1 md:grid-cols-2 reveal mx-auto" style="max-width:900px;">
+            <div class="panel p-8 flex items-center gap-6">
                 <img class="team-avatar" src="./img/superai/vlad.jpg" alt="Vlad — Co-Founder &amp; CTO">
                 <div>
                     <h3 class="font-display text-xl font-bold text-white">Vlad</h3>
                     <p class="text-white/45 text-xs uppercase tracking-widest font-['Space_Grotesk'] mb-3">Co-Founder &amp; CTO</p>
-                    <div class="flex flex-wrap gap-x-5 gap-y-2">
+                    <div class="flex flex-col gap-2">
                         <a class="team-link" href="https://www.linkedin.com/in/vladoid/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0V8zm7.5 0h4.78v2.2h.07c.67-1.2 2.3-2.46 4.73-2.46 5.06 0 6 3.33 6 7.66V24h-5v-7.4c0-1.77-.03-4.05-2.47-4.05-2.47 0-2.85 1.93-2.85 3.92V24h-5V8z"/></svg>LinkedIn</a>
                         <a class="team-link" href="mailto:vladgrey@workeron.ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>Email</a>
                         <a class="team-link" href="https://wa.me/380509105844" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607z"/></svg>WhatsApp</a>
                     </div>
                 </div>
             </div>
-            <div class="glass-card p-7 reveal flex items-center gap-5">
+            <div class="panel p-8 flex items-center gap-6">
                 <img class="team-avatar" src="./img/superai/max.jpg" alt="Max — Co-Founder &amp; CEO">
                 <div>
                     <h3 class="font-display text-xl font-bold text-white">Max</h3>
                     <p class="text-white/45 text-xs uppercase tracking-widest font-['Space_Grotesk'] mb-3">Co-Founder &amp; CEO</p>
-                    <div class="flex flex-wrap gap-x-5 gap-y-2">
+                    <div class="flex flex-col gap-2">
                         <a class="team-link" href="https://www.linkedin.com/in/max-gera/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0V8zm7.5 0h4.78v2.2h.07c.67-1.2 2.3-2.46 4.73-2.46 5.06 0 6 3.33 6 7.66V24h-5v-7.4c0-1.77-.03-4.05-2.47-4.05-2.47 0-2.85 1.93-2.85 3.92V24h-5V8z"/></svg>LinkedIn</a>
                         <a class="team-link" href="mailto:max.gera@workeron.ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>Email</a>
                         <a class="team-link" href="https://wa.me/380936852253" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607z"/></svg>WhatsApp</a>
@@ -365,7 +378,7 @@
 
     <!-- ════════ CTA BAND ════════ -->
     <section class="relative z-10 container px-6 py-12 md:py-16">
-        <div class="glass-card p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 reveal">
+        <div class="border-t border-white/10 pt-10 md:pt-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 reveal">
             <div>
                 <h2 class="font-display text-2xl md:text-4xl font-bold">Ready to rebuild?</h2>
                 <p class="text-white/55 mt-2">Book 20 minutes. We'll tell you if we can help.</p>

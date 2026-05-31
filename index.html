@@ -8465,7 +8465,7 @@
         // The hardcoded value is only a fallback if /api/settings is unavailable.
         let APPLY_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzhMLEygjZeQ-gnzD522FysCz9iQUxHNsORgzY82FgGGBUhNQTUi8BuQRdjNNeOasz30A/exec';
         // Contact-form (consultation) leads endpoint — also admin-controlled (settings.json -> contactLeadsFormUrl).
-        let CONTACT_LEADS_URL = 'PASTE_CONTACT_LEADS_EXEC_URL_HERE';
+        let CONTACT_LEADS_URL = 'https://script.google.com/macros/s/AKfycbyVUYZ4eyWEnefarqqYUVNDznuhOVRlREuSHWASw9TpGS9oJNoIQQOJ2iGWmtizyfFgUw/exec';
         fetch('/api/settings')
             .then(res => res.json())
             .then(settings => {

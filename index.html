@@ -8458,7 +8458,7 @@
         // Apply Form Script URL (for Join the Team form).
         // Primary source is the admin "Forms & Settings" (settings.json -> applyFormUrl), loaded below.
         // The hardcoded value is only a fallback if /api/settings is unavailable.
-        let APPLY_SCRIPT_URL = 'PASTE_NEW_APPLY_EXEC_URL_HERE';
+        let APPLY_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw2sKKMIfy3_mCXPdASLS3PKRZVTLSPwb5O6VjE3nMKPKYCx0ZEW5ftwZRIJJR3WYkc0Q/exec';
         fetch('/api/settings')
             .then(res => res.json())
             .then(settings => {

@@ -11,8 +11,10 @@
  * e.postData.contents and returns JSON {success:true|false}.
  */
 var SHEET_ID = '1jEXRFs4YSRzPmhUulrCq2ST9_7Qw_thwr8FRhzf1Z3Y';
-var TAB_GID = 115747773;
-var HEADERS = ['Timestamp', 'Name', 'Email', 'Role', 'LinkedIn'];
+var TAB_GID = 115747773;          // "Applications" tab
+var TAB_NAME = 'Applications';    // fallback if the gid ever changes
+var HEADERS = ['Timestamp', 'Name', 'Email', 'Role', 'LinkedIn / Portfolio', 'Status'];
+var DEFAULT_STATUS = 'New';
 
 function getTargetSheet_() {
   var ss = SpreadsheetApp.openById(SHEET_ID);
@@ -20,7 +22,7 @@ function getTargetSheet_() {
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].getSheetId() === TAB_GID) return sheets[i];
   }
-  return ss.getActiveSheet(); // fallback
+  return ss.getSheetByName(TAB_NAME) || ss.getActiveSheet(); // fallbacks
 }
 
 function jsonOutput_(obj) {
@@ -56,7 +58,8 @@ function doPost(e) {
     }
 
     var ts = data.timestamp ? new Date(data.timestamp) : new Date();
-    sheet.appendRow([ts, name, email, role, linkedin]);
+    // Columns: Timestamp | Name | Email | Role | LinkedIn / Portfolio | Status
+    sheet.appendRow([ts, name, email, role, linkedin, DEFAULT_STATUS]);
 
     return jsonOutput_({ success: true });
   } catch (err) {
